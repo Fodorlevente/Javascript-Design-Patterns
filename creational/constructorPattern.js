@@ -1,5 +1,8 @@
-let Task = function(name) {
-    this.name = name;
+const Repo = require('./taskRepository');
+
+
+let Task = function(data) {
+    this.name = data.name;
     this.completed = false;
 
     this.complete = () => {
@@ -9,6 +12,7 @@ let Task = function(name) {
 
     this.save = () => {
         console.log(`saving task: ${this.name}`);
+        Repo.save(this);
     }
 }
 
